@@ -1,12 +1,15 @@
-import { useContext } from 'react'
 import './App.css'
-import CalculationContext from './CalculationContext'
+import ButtonPanel from './ButtonPanel'
+import CalculationContext from '../contexts/CalculationContext'
+import useCalculation from '../hooks/useCalculation'
 
-function App() {  
+function App() {
+  const [ calculation, setCalculation ] = useCalculation()
+
   return (
-    <CalculationContext.Provider value={{ total: null, next: null, operation: null }}>
-      <div className='component-app'>
-        <h1 style={{color: 'white'}}>It's me, Mario.</h1>
+    <CalculationContext.Provider value={{value: {...calculation}, calculate: setCalculation}}>
+      <div className='component-app' style={{color: 'white'}}>
+        <ButtonPanel/>
       </div>
     </CalculationContext.Provider>
   );
