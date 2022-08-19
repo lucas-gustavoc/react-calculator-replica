@@ -1,12 +1,40 @@
-import { useContext } from "react"
-import CalculationContext from "../contexts/CalculationContext"
+import "./ButtonPanel.css";
+import Button from "./Button"
+
+
 
 export default function ButtonPanel() {
-    const { calculate } = useContext(CalculationContext)
-
     return (
+        <div className="component-button-panel">
         <div>
-            <button onClick={() => calculate("5")}>Change</button>
+          <Button name="AC"/>
+          <Button name="+/-"/>
+          <Button name="%"/>
+          <Button name="÷" orange />
         </div>
+        <div>
+          <Button name="7"/>
+          <Button name="8"/>
+          <Button name="9"/>
+          <Button name="x" orange />
+        </div>
+        <div>
+          <Button name="4"/>
+          <Button name="5"/>
+          <Button name="6"/>
+          <Button name="-" orange />
+        </div>
+        <div>
+          <Button name="1"/>
+          <Button name="2"/>
+          <Button name="3"/>
+          <Button name="+" orange />
+        </div>
+        <div>
+          <Button name="0" wide />
+          <Button name="."/>
+          <Button name="=" orange />
+        </div>
+      </div>
     )
 }

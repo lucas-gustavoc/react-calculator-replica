@@ -7,10 +7,11 @@ export default function useCalculation() {
     const [ operation, setOperation ] = useState(null)
 
     const setCalculation = buttonName => {
+
         const calculation = calculate({ total, next, operation }, buttonName)
-        if (calculation.total) setTotal(calculation.total)
-        if (calculation.next) setNext(calculation.next)
-        if (calculation.operation) setOperation(calculation.operation)
+        if (calculation.total !== undefined) setTotal(calculation.total)
+        if (calculation.next !== undefined) setNext(calculation.next)
+        if (calculation.operation !== undefined) setOperation(calculation.operation)
     }
 
     return [ 
